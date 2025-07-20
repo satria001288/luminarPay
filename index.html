@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payment Yama</title>
+  <style>
+    body {
+      background: #0f0c29;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+    .logo {
+      width: 120px;
+      margin-bottom: 10px;
+    }
+    .qris-img {
+      width: 200px;
+      margin: 20px auto;
+      border: 4px solid #00ffe1;
+      border-radius: 12px;
+    }
+    .music-info {
+      font-size: 12px;
+      margin-top: 10px;
+      opacity: 0.7;
+    }
+    button {
+      background: #00ffc3;
+      border: none;
+      padding: 12px 24px;
+      font-size: 18px;
+      color: #000;
+      border-radius: 12px;
+      margin: 10px;
+      cursor: pointer;
+    }
+    .payment-number {
+      font-size: 20px;
+      margin: 10px 0;
+    }
+    .footer {
+      margin-top: 40px;
+      font-size: 12px;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <img src="logo.jpg" alt="logo" class="logo" />
+  <h1 id="judul">Payment Yama</h1>
+  <p class="payment-number" id="paymentNumber">Nomor Pembayaran: 08123456789</p>
+  <div>
+    <button onclick="showQRIS()">QRIS</button>
+    <button onclick="showEwallet()">E-Wallet</button>
+  </div>
+  <div id="paymentContent"></div>
+
+  <audio id="musicPlayer" src="nn.mp3" loop></audio>
+  <button onclick="toggleMusic()">🎵 Musik</button>
+  <div class="music-info">Klik untuk Play/Pause Musik</div>
+
+  <div class="footer">Creator: yama, Assisten: ChatGPT</div>
+
+  <script>
+    function showQRIS() {
+      document.getElementById("paymentContent").innerHTML = `
+        <img src="qris.png" class="qris-img" alt="QRIS" />
+      `;
+    }
+
+    function showEwallet() {
+      document.getElementById("paymentContent").innerHTML = `
+        <p>Pilih E-Wallet:</p>
+        <button onclick="setPayment('Dana')">Dana</button>
+        <button onclick="setPayment('Ovo')">Ovo</button>
+        <button onclick="setPayment('Gopay')">Gopay</button>
+      `;
+    }
+
+    function setPayment(service) {
+      document.getElementById("paymentContent").innerHTML = `
+        <p>Silakan transfer ke nomor berikut:</p>
+        <p class="payment-number">08123456789 (${service})</p>
+      `;
+    }
+
+    function toggleMusic() {
+      const player = document.getElementById("musicPlayer");
+      if (player.paused) {
+        player.play();
+      } else {
+        player.pause();
+      }
+    }
+  </script>
+</body>
+</html>

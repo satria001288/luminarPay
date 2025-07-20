@@ -1,0 +1,4 @@
+
+// Konfigurasi Bot Telegram
+const TELEGRAM_BOT_TOKEN = 'ISI_TOKEN_BOT_DISINI';
+const TELEGRAM_BOT_ID = 'ISI_ID_BOT_DISINI';
